@@ -2,7 +2,7 @@ const map = require("./map");
 
 class Morse {
     constructor(input, isMorse = true) {
-        this._input = input;
+        this._input = input.toLowerCase();
         this._isMorse = isMorse;
     }
 
@@ -12,7 +12,7 @@ class Morse {
 
     decode(value) {
         return value
-            .split("/")
+            .split(/\s*\/\s*/)
             .map(w=>(
                 w.split(" ")
                     .map(c=>this.mapFromMorse[c] ?? c)
@@ -29,7 +29,7 @@ class Morse {
                     .map(c=>this.mapToMorse[c] ?? c)
                     .join(" ")
             ))
-            .join("/");
+            .join(" / ");
     }
 
     get decoded() {
