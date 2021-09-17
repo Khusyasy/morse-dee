@@ -1,7 +1,7 @@
 class Morse {
-    constructor(input, fromMorse = true) {
+    constructor(input, isMorse = true) {
         this._input = input;
-        this._fromMorse = fromMorse;
+        this._isMorse = isMorse;
     }
 
     mapToMorse = {
@@ -105,11 +105,11 @@ class Morse {
     }
 
     get decoded() {
-        return this._fromMorse ? this.decode(this._input) : this._input;
+        return this._isMorse ? this.decode(this._input) : this._input;
     }
 
     get encoded() {
-        return !this._fromMorse ? this.encode(this._input) : this._input;
+        return !this._isMorse ? this.encode(this._input) : this._input;
     }
 }
 
